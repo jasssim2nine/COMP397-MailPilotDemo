@@ -12,7 +12,6 @@ var scenes;
 (function (scenes) {
     var PlayScene = /** @class */ (function (_super) {
         __extends(PlayScene, _super);
-        // Private Instance Variables
         // Public Properties
         //Constructor
         function PlayScene(assetManager) {
@@ -24,11 +23,15 @@ var scenes;
         //Public Methods
         //Initialize game variables and objects
         PlayScene.prototype.Start = function () {
+            this._ocean = new objects.Ocean(this.assetManager);
             this.Main();
         };
         PlayScene.prototype.Update = function () {
+            this._ocean.Update();
         };
         PlayScene.prototype.Main = function () {
+            //add ocean to the scene
+            this.addChild(this._ocean);
         };
         return PlayScene;
     }(objects.Scene));
