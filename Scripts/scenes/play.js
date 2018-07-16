@@ -25,15 +25,19 @@ var scenes;
         PlayScene.prototype.Start = function () {
             this._ocean = new objects.Ocean(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
+            this._island = new objects.Island(this.assetManager);
             this.Main();
         };
         PlayScene.prototype.Update = function () {
             this._ocean.Update();
             this._plane.Update();
+            this._island.Update();
         };
         PlayScene.prototype.Main = function () {
             //add ocean to the scene
             this.addChild(this._ocean);
+            //add island to the scene
+            this.addChild(this._island);
             //add plane to the scene
             this.addChild(this._plane);
         };
