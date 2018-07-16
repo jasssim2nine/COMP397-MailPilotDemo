@@ -24,14 +24,18 @@ var scenes;
         //Initialize game variables and objects
         PlayScene.prototype.Start = function () {
             this._ocean = new objects.Ocean(this.assetManager);
+            this._plane = new objects.Plane(this.assetManager);
             this.Main();
         };
         PlayScene.prototype.Update = function () {
             this._ocean.Update();
+            this._plane.Update();
         };
         PlayScene.prototype.Main = function () {
             //add ocean to the scene
             this.addChild(this._ocean);
+            //add plane to the scene
+            this.addChild(this._plane);
         };
         return PlayScene;
     }(objects.Scene));
