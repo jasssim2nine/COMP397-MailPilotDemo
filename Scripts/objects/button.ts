@@ -19,7 +19,7 @@ module objects{
             }
         //Private Methods
                 private _mouseOver():void{
-                    this.alpha = 0.5;
+                    this.alpha = 0.7;
                 }
                 private _mouseOut():void{
                     this.alpha = 1.0;

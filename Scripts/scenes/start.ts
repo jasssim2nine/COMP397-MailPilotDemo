@@ -3,6 +3,7 @@ module scenes {
         // Private Instance Variables
         private _welcomeLabel: objects.Label;
         private _startButton: objects.Button;
+        private _ocean : objects.Ocean;
 
         // Public Properties
 
@@ -24,18 +25,22 @@ module scenes {
 
         //Initialize game variables and objects
         public Start(): void {
-            this._welcomeLabel = new objects.Label("Welcome", "60px", "consolas", "#000000", 320, 360, true);
-            this._startButton = new objects.Button(this.assetManager, "startButton", 320, 240);
+                this._ocean = new objects.Ocean(this.assetManager);
+
+            this._welcomeLabel = new objects.Label("Mail Pilot", "60px", "consolas", "#FFFF00", 325, 160, true);
+            this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
             this.Main();
 
         }
 
         public Update() {
-
+                this._ocean.Update();
 
 
         }
         public Main(): void {
+            //add a ocean 
+            this.addChild(this._ocean);
             this.addChild(this._welcomeLabel);//add welcome label to the scene
             this.addChild(this._startButton);
 
