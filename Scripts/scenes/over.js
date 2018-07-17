@@ -21,7 +21,7 @@ var scenes;
         }
         //Private Methods
         OverScene.prototype._backButtonClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
+            objects.Game.currentScene = config.Scene.START;
         };
         //Public Methods
         //Initialize game variables and objects

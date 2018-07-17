@@ -19,7 +19,7 @@ module scenes {
 
         private _backButtonClick(): void {
 
-            objects.Game.currentScene = config.Scene.PLAY;
+            objects.Game.currentScene = config.Scene.START;
         }
 
         //Public Methods
