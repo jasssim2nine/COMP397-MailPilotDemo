@@ -37,6 +37,8 @@ var scenes;
             this._engineSound = createjs.Sound.play("engine");
             this._engineSound.loop = -1; //play engine sound for ever
             this._engineSound.volume = 0.3;
+            this._scoreBoard = new managers.ScoreBoard();
+            objects.Game.scoreBoard = this._scoreBoard;
             this.Main();
         };
         //check every frame
@@ -52,6 +54,11 @@ var scenes;
                 //check collision between plane and current cloud 
                 managers.Collision.Check(_this._plane, cloud);
             });
+            //if lives fall below 0 then swith the scene.
+            if (this._scoreBoard.Lives <= 0) {
+                this._engineSound.stop();
+                objects.Game.currentScene = config.Scene.OVER;
+            }
         };
         PlayScene.prototype.Main = function () {
             var _this = this;
@@ -65,6 +72,9 @@ var scenes;
             this._clouds.forEach(function (cloud) {
                 _this.addChild(cloud);
             });
+            //add scoreboard labels to the game
+            this.addChild(this._scoreBoard.LiveLabel);
+            this.addChild(this._scoreBoard.ScoreLabel);
         };
         return PlayScene;
     }(objects.Scene));
