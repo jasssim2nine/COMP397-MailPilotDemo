@@ -15,6 +15,11 @@ module managers{
                     case "island":
                     createjs.Sound.play("yay");
                     objects.Game.scoreBoard.Score += 100;
+                    if(objects.Game.scoreBoard.HighScore <= objects.Game.scoreBoard.Score)
+                    {
+                        objects.Game.scoreBoard.HighScore = objects.Game.scoreBoard.Score;
+                        objects.Game.HighScore = objects.Game.scoreBoard.HighScore;
+                    }
                     
                     break;
                     case "cloud":
