@@ -10,6 +10,7 @@
     var assetManifest;
     var currentScene;
     var currentState;
+    var keyBoardManager;
     assetManifest = [
         { id: "clickMeButton", src: "./Assets/images/click_here_button.png" },
         { id: "startButton", src: "./Assets/images/startButton.png" },
@@ -40,6 +41,8 @@
         objects.Game.stage = stage;
         objects.Game.currentScene = config.Scene.START;
         currentState = config.Scene.START;
+        keyBoardManager = new managers.Keyboard();
+        objects.Game.keyBoardManager = keyBoardManager;
         Main();
     }
     function Update() {

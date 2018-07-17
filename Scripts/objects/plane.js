@@ -23,6 +23,7 @@ var objects;
         //public Methods
         //Initializes variables and set speed
         Plane.prototype.Start = function () {
+            this.x = 320;
             this.y = 430;
         };
         Plane.prototype.Update = function () {
@@ -32,7 +33,14 @@ var objects;
         Plane.prototype.Reset = function () {
         };
         Plane.prototype.Move = function () {
-            this.x = objects.Game.stage.mouseX;
+            //this.x = objects.Game.stage.mouseX;
+            //keyboard control
+            if (objects.Game.keyBoardManager.moveLeft) {
+                this.x -= 5;
+            }
+            if (objects.Game.keyBoardManager.moveRight) {
+                this.x += 5;
+            }
         };
         Plane.prototype.CheckBounds = function () {
             //right boundary

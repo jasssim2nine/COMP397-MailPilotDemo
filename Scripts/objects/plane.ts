@@ -20,6 +20,7 @@ module objects{
 
             //Initializes variables and set speed
             public Start():void{
+                this.x = 320;
                 this.y = 430;
                
             }
@@ -33,7 +34,15 @@ module objects{
             }
 
            public Move():void{
-                this.x = objects.Game.stage.mouseX;
+                //this.x = objects.Game.stage.mouseX;
+
+                //keyboard control
+                if(objects.Game.keyBoardManager.moveLeft){
+                    this.x -= 5;
+                }
+                if(objects.Game.keyBoardManager.moveRight){
+                    this.x += 5;
+                }
                 
             }
 
