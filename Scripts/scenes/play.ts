@@ -40,14 +40,18 @@ module scenes {
 
         }
            
-
+            //check every frame
         public Update() {
 
         this._ocean.Update();
         this._plane.Update();
         this._island.Update();
+        //check collision between plane and island
+        managers.Collision.Check(this._plane, this._island);
         this._clouds.forEach(cloud =>{
-            cloud.Update(); 
+            cloud.Update();
+            //check collision between plane and current cloud 
+            managers.Collision.Check(this._plane, cloud);
         }); 
             }
         
