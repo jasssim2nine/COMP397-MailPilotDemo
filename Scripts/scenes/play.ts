@@ -7,6 +7,8 @@ module scenes {
             private _clouds:  objects.Cloud[];
             private _cloudNum : number;
 
+            private _engineSound :  createjs.AbstractSoundInstance;
+
         // Public Properties
 
 
@@ -36,6 +38,12 @@ module scenes {
               {
                   this._clouds[count] = new objects.Cloud(this.assetManager); 
               }
+
+              //add engine sound
+
+              this._engineSound = createjs.Sound.play("engine");
+              this._engineSound.loop = -1;//play engine sound for ever
+              this._engineSound.volume =0.3;
             this.Main();
 
         }
